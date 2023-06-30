@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* .personalEnemy{ 
+} */
+
+.timer{
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    font-size: 50px;
+    -webkit-text-stroke: 2px ;
+    -webkit-text-stroke-color: black;
+    color: white;
+}
+body{
+    overflow: hidden;
+    min-height: 100vh;
+    background: linear-gradient(to top, rgb(20, 67, 99), rgb(94, 197, 74)) no-repeat
+}
+.ui_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.points{
+    font-family: 'Secular One', sans-serif;
+    -webkit-text-stroke: 2px ;
+    -webkit-text-stroke-color: black;
+    color: white;
+    font-size: 30px;
+}
