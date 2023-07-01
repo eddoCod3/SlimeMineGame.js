@@ -53,7 +53,8 @@ function generatedEnemies(){
 
 
 
-
+let message = `this is a messge ${points} enter the part of the game `
+let messageP = "this is a message" + points + " please entenr the part of the game"
 function showScore(){
   
   let pointsDisplay = document.getElementById("points")
