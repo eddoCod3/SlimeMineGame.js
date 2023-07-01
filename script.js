@@ -1,13 +1,4 @@
 
-// function enemyPosition(){
-//     let enemy = document.getElementById("enemy");
-//     let x = Math.floor(Math.random() * 600);
-//     let y = Math.floor(Math.random() * 600);
-//     enemy.style.left = x + "px";
-//     enemy.style.top = y + "px";
-//     enemy.style.position= "relative";
-    
-// }
 let points = 0
 function createEnemy(){
   
@@ -44,7 +35,6 @@ function endGameTimer(){
             timer--
             timerDisplay.textContent= timer
         }else{
-            timer
             endGameMessage()
             
         }
@@ -61,14 +51,19 @@ function generatedEnemies(){
     }
 }
 
+
+
+
 function showScore(){
   
   let pointsDisplay = document.getElementById("points")
-  pointsDisplay.textContent = points
+  setInterval(()=>{
+    pointsDisplay.textContent = `Points: ${points}`
+  },1000)
 }
 
 function startGame(){
-  
+    showScore();
     endGameTimer();
     generatedEnemies();
 }
