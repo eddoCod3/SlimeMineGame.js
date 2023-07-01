@@ -47,12 +47,20 @@ function showScore() {
   setInterval(() => {
     pointsDisplay.textContent = `Points: ${points}`;
     setLocalStorage()
+    changRootVariable()
   }, 1000);
 
 }
 
 function endGameMessage() {
   alert(`Game over  your points:${points}`);
+}
+
+function generateRandomHexColor(){
+  let hexColor = "#"
+  hexColor += Math.floor(Math.random() * 16777215).toString(16)
+
+  return hexColor
 }
 
 function setLocalStorage(){
@@ -77,12 +85,11 @@ function getRootVariables(){
 
 function changRootVariable(){
   let rootCss = document.querySelector(':root');
-  rootCss.style.setProperty('--Main--Color', 'red');
+  rootCss.style.setProperty('--Main--Color', generateRandomHexColor());
 }
 function startGame() {
     showScore();
     endGameTimer();
     generatedEnemies();
-    changRootVariable();
     
   }
