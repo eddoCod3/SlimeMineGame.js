@@ -15,6 +15,12 @@ function createEnemy() {
     this.style.position = "absolute";
     points++;
   };
+  newEnemy.onmousemove = function () {
+    let x =5
+    let y= 5
+    this.style.left = x + "px";
+    this.style.top = y + "px";
+  }
   imageEnemy.src = `img/${randomEnemyChoose}`;
   newEnemy.append(imageEnemy);
   document.body.appendChild(newEnemy);
@@ -26,12 +32,13 @@ function endGameTimer() {
   let timerDisplay = document.getElementById("timer");
   timerDisplay.textContent = timer;
 
-  setInterval(() => {
+  let timerInterval =setInterval(() => {
     if (timer != 0) {
       timer--;
       timerDisplay.textContent = timer;
     } else {
       endGameMessage();
+      clearInterval(timerInterval);
     }
   }, 1000);
 }
@@ -66,21 +73,16 @@ function generateRandomHexColor(){
 function setLocalStorage(){
     let displayMaxScore = document.getElementById("maxPoints");
     let higherScore =0;
-    displayMaxScore.textContent = higherScore;
-    
-    if(higherScore <= points){
-        higherScore += points
+    displayMaxScore.innerHTML = higherScore;
+
+    if(!higherScore){
+        higherScore = points
         localStorage.setItem("higherScore", higherScore);
-    }else{
-        localStorage.getItem("higherScore");
     }
+
+    return localStorage.getItem("higherScore");
     
   
-}
-
-function getRootVariables(){
-  let rootCss = document.querySelector(':root');
-  let  cssVariable = getComputedStyle(rootCss)
 }
 
 function changRootVariable(){
