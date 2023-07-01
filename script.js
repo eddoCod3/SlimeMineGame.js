@@ -70,9 +70,19 @@ function setLocalStorage(){
   
 }
 
+function getRootVariables(){
+  let rootCss = document.querySelector(':root');
+  let  cssVariable = getComputedStyle(rootCss)
+}
+
+function changRootVariable(){
+  let rootCss = document.querySelector(':root');
+  rootCss.style.setProperty('--Main--Color', 'red');
+}
 function startGame() {
     showScore();
     endGameTimer();
     generatedEnemies();
+    changRootVariable();
     
   }

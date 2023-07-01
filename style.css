@@ -4,7 +4,10 @@
     margin: 0;
     box-sizing: border-box;
 }
-
+:root{
+    --Main--Color:#144363;
+    --Secondary--Color: #5ec54a;
+}
 /* .personalEnemy{ 
 } */
 
@@ -16,10 +19,11 @@
     -webkit-text-stroke-color: black;
     color: white;
 }
+
 body{
     overflow: hidden;
     min-height: 100vh;
-    background: linear-gradient(to top, rgb(20, 67, 99), rgb(94, 197, 74)) no-repeat
+    background: linear-gradient(to top,var(--Main--Color), var(--Secondary--Color)) no-repeat
 }
 .ui_container{
     display: flex;
