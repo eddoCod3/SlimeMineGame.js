@@ -12,7 +12,9 @@ Creating a simple web game, that can be expand with vanilla Javascript , and als
 - Creation of a Timer [x]
 - Spawn of enemies [x]
 - Creation of Point system []
-- Refactorin the code
+- Refactore the code
+- Music []
+- Juice []
 
 
 ### Technologies
