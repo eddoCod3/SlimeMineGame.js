@@ -1,6 +1,6 @@
 
 # SlimeMineGame.js
-
+![image](https://github.com/eddoCod3/SlimeMineGame.js/assets/130181966/aeb88faf-40f9-486a-9fba-5608532bb5fd)
 Small web game create with the intention of playing with the innerHtml attribute, functions, and for loops,
 
 
