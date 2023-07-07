@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+*,*::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --Main--Color:#144363;
+    --Secondary--Color: #5ec54a;
+}
+/* .personalEnemy{ 
+} */
+
+.timer{
+    text-align: center;
+    font-family: 'Secular One', sans-serif;
+    font-size: 50px;
+    -webkit-text-stroke: 2px ;
+    -webkit-text-stroke-color: black;
+    color: white;
+}
+
+body{
+    overflow: hidden;
+    min-height: 100vh;
+    background: linear-gradient(to top,var(--Main--Color), var(--Secondary--Color)) no-repeat
+}
+.ui_container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.points{
+    font-family: 'Secular One', sans-serif;
+    -webkit-text-stroke: 2px ;
+    -webkit-text-stroke-color: black;
+    color: white;
+    font-size: 30px;
+}
+
+.personalEnemy{
+    position: relative;
+    transition: all .2s ;
+}
