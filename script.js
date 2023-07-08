@@ -5,9 +5,25 @@ const enemyGenerator = {
   createEnemy: function () {
     const randomEnemyChoose = this.getRandomEnemy();
     const newEnemy = this.createEnemyElement();
+    const [x, y] = this.getRandomPosition();
+    this.setPosition(newEnemy, x, y);
     this.addEventHandlers(newEnemy);
     this.appendEnemyToDOM(newEnemy, randomEnemyChoose);
     console.log("Generated");
+  },
+
+
+  getRandomPosition: function () {
+    const maxX = 400; 
+    const maxY = 400; 
+    const x = Math.floor(Math.random() * maxX);
+    const y = Math.floor(Math.random() * maxY);
+    return [x, y];
+  },
+
+  setPosition: function (enemy, x, y) {
+    enemy.style.left = x + "px";
+    enemy.style.top = y + "px";
   },
 
   removeEnemy: function (enemy) {
@@ -68,6 +84,9 @@ const timer = {
     this.displayElement.textContent = this.duration;
 
     this.intervalId = setInterval(() => {
+
+
+
       if (this.duration > 0) {
         this.duration--;
         this.updateDisplay();
@@ -79,6 +98,9 @@ const timer = {
 
   updateDisplay: function () {
     this.displayElement.textContent = this.duration;
+    if (this.duration <= 10) {
+      this.displayElement.style.color = "rgb(255, 0, 0)"; // Bright red color
+    }
   },
 
   endGame: function () {
