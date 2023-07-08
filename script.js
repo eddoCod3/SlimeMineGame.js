@@ -2,6 +2,7 @@ let points = 0;
 function createEnemy() {
   let enemyGroup = ["Slime.gif", "SlimeDark.gif", "SlimeVolcano.gif"];
   let randomEnemyChoose =enemyGroup[Math.floor(Math.random() * enemyGroup.length)];
+  
   let imageEnemy = document.createElement("img");
   let newEnemy = document.createElement("div");
   newEnemy.classList.add("personalEnemy");
@@ -11,6 +12,7 @@ function createEnemy() {
     let y = Math.floor(Math.random() * 400);
     this.style.left = x + "px";
     this.style.top = y + "px";
+   
     points++;
   };
   newEnemy.onmousemove = function () {
@@ -18,6 +20,7 @@ function createEnemy() {
     let y = Math.floor(Math.random() * 10);
     this.style.left = x + "px";
     this.style.top = y + "px";
+    playAudio()
   }
   imageEnemy.src = `img/${randomEnemyChoose}`;
   newEnemy.append(imageEnemy);
@@ -39,6 +42,11 @@ function endGameTimer() {
       clearInterval(timerInterval);
     }
   }, 1000);
+}
+
+function playAudio(){
+  let music = new Audio("audio/slime_jump.mp3");
+  music.play();
 }
 
 function generatedEnemies() {
@@ -68,20 +76,19 @@ function generateRandomHexColor(){
   return hexColor
 }
 
-function setLocalStorage(){
-    let displayMaxScore = document.getElementById("maxPoints");
-    let higherScore =0;
-    displayMaxScore.innerHTML = higherScore;
+function setLocalStorage() {
+  let displayMaxScore = document.getElementById("maxPoints");
+  let higherScore = parseInt(localStorage.getItem("higherScore")) || 0;
+  displayMaxScore.innerHTML = `Max Score : ${higherScore}`;
 
-    if(!higherScore){
-        higherScore = points
-        localStorage.setItem("higherScore", higherScore);
-    }
+  if (points > higherScore) {
+      higherScore = points;
+      localStorage.setItem("higherScore", higherScore);
+  }
 
-    return localStorage.getItem("higherScore");
-    
-  
+  return higherScore;
 }
+
 
 function changRootVariable(){
   let rootCss = document.querySelector(':root');
