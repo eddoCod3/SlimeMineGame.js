@@ -157,3 +157,4 @@ function startGame() {
   }
   
 }
+//I need to refactor and find a better way to  do all of this
