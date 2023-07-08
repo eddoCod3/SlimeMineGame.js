@@ -38,3 +38,12 @@ body{
     color: white;
     font-size: 30px;
 }
+
+.points--danger{
+    color: #581616;
+}
+
+.personalEnemy{
+    position: relative;
+    transition: all .2s ;
+}
