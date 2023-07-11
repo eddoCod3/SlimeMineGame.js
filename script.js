@@ -11,16 +11,14 @@ const enemyGenerator = {
     this.appendEnemyToDOM(newEnemy, randomEnemyChoose);
     console.log("Generated");
   },
-
-
   getRandomPosition: function () {
-    const maxX = 400; 
-    const maxY = 400; 
-    const x = Math.floor(Math.random() * maxX);
-    const y = Math.floor(Math.random() * maxY);
+    const maxX = window.innerWidth - 500; 
+    const maxY = window.innerHeight - 500; 
+    const x = Math.max(0, Math.floor(Math.random() * maxX));
+    const y = Math.max(0, Math.floor(Math.random() * maxY));
     return [x, y];
   },
-
+  
   setPosition: function (enemy, x, y) {
     enemy.style.left = x + "px";
     enemy.style.top = y + "px";
@@ -45,8 +43,6 @@ const enemyGenerator = {
   },
 
   handleEnemyClick: function (enemy) {
-    const x = Math.floor(Math.random() * 400);
-    const y = Math.floor(Math.random() * 400);
     enemy.style.left = x + "px";
     enemy.style.top = y + "px";
     points++;
@@ -54,8 +50,10 @@ const enemyGenerator = {
   },
 
   handleEnemyMousemove: function (enemy) {
-    const x = Math.floor(Math.random() * 10);
-    const y = Math.floor(Math.random() * 10);
+    const maxX = window.innerWidth - 400; 
+    const maxY = window.innerHeight - 400; 
+    const x = Math.max(0, Math.floor(Math.random() * maxX));
+    const y = Math.max(0, Math.floor(Math.random() * maxY));
     enemy.style.left = x + "px";
     enemy.style.top = y + "px";
     this.playAudio();
@@ -85,8 +83,6 @@ const timer = {
 
     this.intervalId = setInterval(() => {
 
-
-
       if (this.duration > 0) {
         this.duration--;
         this.updateDisplay();
@@ -99,7 +95,9 @@ const timer = {
   updateDisplay: function () {
     this.displayElement.textContent = this.duration;
     if (this.duration <= 10) {
-      this.displayElement.style.color = "rgb(255, 0, 0)"; // Bright red color
+      let hexRedColor = 150
+      this.displayElement.style.color = `rgb(${hexRedColor},0,0)`; // Bright red color
+      hexRedColor += 10
     }
   },
 
@@ -119,7 +117,17 @@ function showScore() {
   }, 1000);
 }
 function endGameMessage() {
-  alert(`Game over  your points:${points}`);
+ let messageEndGame = document.getElementById('dialogPop')
+ let pointsShow = document.getElementById("pointsShow")
+ pointsShow.textContent = points
+ messageEndGame.show()
+}
+
+function closeModal(){
+  let closeModal = document.querySelector(".btn")
+  closeModal.addEventListener("click", ()=>{
+    messageEndGame.hide()
+  })
 }
 function generateRandomHexColor() {
   let hexColor = "#";
@@ -157,4 +165,3 @@ function startGame() {
   }
   
 }
-//I need to refactor and find a better way to  do all of this
