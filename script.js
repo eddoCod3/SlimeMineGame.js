@@ -107,35 +107,35 @@ const timer = {
   },
 };
 
-function showScore() {
+const showScore = ()=> {
   const pointsDisplay = document.getElementById("points");
 
   setInterval(() => {
     pointsDisplay.textContent = `Points: ${points}`;
     setLocalStorage();
-    changRootVariable();
+    //changRootVariable();
   }, 1000);
 }
-function endGameMessage() {
+const endGameMessage =()=>{
  let messageEndGame = document.getElementById('dialogPop')
  let pointsShow = document.getElementById("pointsShow")
  pointsShow.textContent = points
  messageEndGame.show()
 }
 
-function closeModal(){
+const closeModal =()=>{
   let closeModal = document.querySelector(".btn")
   closeModal.addEventListener("click", ()=>{
     messageEndGame.hide()
   })
 }
-function generateRandomHexColor() {
+const generateRandomHexColor =()=> {
   let hexColor = "#";
   hexColor += Math.floor(Math.random() * 16777215).toString(16);
 
   return hexColor;
 }
-function setLocalStorage() {
+const setLocalStorage =()=> {
   let displayMaxScore = document.getElementById("maxPoints");
   let higherScore = parseInt(localStorage.getItem("higherScore")) || 0;
   displayMaxScore.innerHTML = `Max Score : ${higherScore}`;
@@ -147,17 +147,17 @@ function setLocalStorage() {
 
   return higherScore;
 }
-function changRootVariable() {
+const changRootVariable =()=> {
   let rootCss = document.querySelector(":root");
   rootCss.style.setProperty("--Main--Color", generateRandomHexColor());
 }
-function verifyEnemyQuantity() {
+const verifyEnemyQuantity =()=> {
   const enemyElements = document.getElementsByClassName("personalEnemy");
   if (enemyElements.length === 0) {
     alert("You cleared the game!");
   }
 }
-function startGame() {
+const startGame =()=> {
   showScore();
   timer.start();
   for (let i = 0; i < 5; i++) {
