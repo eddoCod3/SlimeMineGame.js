@@ -53,11 +53,16 @@ body{
     transition: all .2s ;
 }
 
+<<<<<<< HEAD
 dialog::backdrop{
     background-color: rgb(49, 49, 49)
 }
 dialog{
     
+=======
+
+dialog{
+>>>>>>> slimeMain
     border-radius: 10px;
     z-index: 10;
     top: 50%;
@@ -68,6 +73,13 @@ dialog{
     background-color: #5ec54a;
     border:  2px solid #144363;
 }
+<<<<<<< HEAD
+=======
+dialog::backdrop{
+    background-color: rgba(49, 49, 49, 0.507)
+}
+
+>>>>>>> slimeMain
 .btn{
     background-color: #144363;
     padding: 8px;
@@ -75,8 +87,29 @@ dialog{
     margin-top: 15px;
     border: none;
     transition: all .2s;
+<<<<<<< HEAD
+=======
+    text-transform: uppercase;
+    font-weight: 800;
+
+>>>>>>> slimeMain
 }
 .btn:hover{
     background-color: #181f58;
     color: white;
+<<<<<<< HEAD
+=======
+}
+.main-enemy{
+    position: absolute;
+}
+.time_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.apperence{
+    display: none;
+>>>>>>> slimeMain
 }

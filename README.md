@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 # SlimeMineGame.js
 ![image](https://github.com/eddoCod3/SlimeMineGame.js/assets/130181966/aeb88faf-40f9-486a-9fba-5608532bb5fd)
@@ -31,3 +32,7 @@ Creating a simple web game, that can be expand with vanilla Javascript , and als
 
 #### Author
 EddoCode 
+=======
+# SlimeMineGame.js
+Small mini game of a couple of smiles, you need to destroy them to earn points
+>>>>>>> slimeMain
