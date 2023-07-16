@@ -7,12 +7,17 @@
     <title>Mini-Game</title>
   </head>
   <body onload="startGame()">
+    <dialog id="dialogPop_menu">
+         <button onclick="timer.stop()">stop time</button>
+        <button onclick="timer.restart()">Restar time</button>
+    </dialog>
+    
 
     <section id="dialogPop_container">
       <dialog id="dialogPop" class="dialogModal">
         <h2>Game over</h2>
         <p> your points are : <span id="pointsShow"></span></p>
-        <button class="btn">Close</button>
+        <button class="btn" onclick="restartGame()" id="close">Close</button>
        </dialog>
     </section>
 
