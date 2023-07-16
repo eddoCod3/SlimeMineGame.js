@@ -1,44 +1,25 @@
 let points = 0;
 const enemyGenerator = {
   enemyGroup: ["Slime.gif", "SlimeDark.gif", "SlimeVolcano.gif"],
-<<<<<<< HEAD
-=======
   death: "deathSlime.gif",
->>>>>>> slimeMain
 
   createEnemy: function () {
     const randomEnemyChoose = this.getRandomEnemy();
     const newEnemy = this.createEnemyElement();
     const [x, y] = this.getRandomPosition();
-<<<<<<< HEAD
-    this.setPosition(newEnemy, x, y);
-=======
     this.setPosition(newEnemy, x, y, true);
->>>>>>> slimeMain
     this.addEventHandlers(newEnemy);
     this.appendEnemyToDOM(newEnemy, randomEnemyChoose);
     console.log("Generated");
   },
-<<<<<<< HEAD
-  getRandomPosition: function () {
-    const maxX = window.innerWidth - 500; 
-    const maxY = window.innerHeight - 500; 
-=======
 
   getRandomPosition: function () {
     const maxX = window.innerWidth - 500;
     const maxY = window.innerHeight - 500;
->>>>>>> slimeMain
     const x = Math.max(0, Math.floor(Math.random() * maxX));
     const y = Math.max(0, Math.floor(Math.random() * maxY));
     return [x, y];
   },
-<<<<<<< HEAD
-  
-  setPosition: function (enemy, x, y) {
-    enemy.style.left = x + "px";
-    enemy.style.top = y + "px";
-=======
 
   setPosition: function (enemy, x, y, slide = false) {
     if (slide) {
@@ -73,16 +54,11 @@ const enemyGenerator = {
       enemy.style.left = x + "px";
       enemy.style.top = y + "px";
     }
->>>>>>> slimeMain
   },
 
   removeEnemy: function (enemy) {
     enemy.remove();
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> slimeMain
   getRandomEnemy: function () {
     return this.enemyGroup[Math.floor(Math.random() * this.enemyGroup.length)];
   },
@@ -94,22 +70,6 @@ const enemyGenerator = {
   },
 
   addEventHandlers: function (enemy) {
-<<<<<<< HEAD
-    enemy.addEventListener("click", () => this.handleEnemyClick(enemy));
-    enemy.addEventListener("mousemove", () => this.handleEnemyMousemove(enemy));
-  },
-
-  handleEnemyClick: function (enemy) {
-    enemy.style.left = x + "px";
-    enemy.style.top = y + "px";
-    points++;
-    this.removeEnemy(enemy);
-  },
-
-  handleEnemyMousemove: function (enemy) {
-    const maxX = window.innerWidth - 400; 
-    const maxY = window.innerHeight - 400; 
-=======
     enemy.addEventListener("click", (event) => this.handleEnemyClick(event));
     enemy.addEventListener("mousemove", () => this.handleEnemyMousemove(enemy));
   },
@@ -178,7 +138,6 @@ const enemyGenerator = {
   handleEnemyMousemove: function (enemy) {
     const maxX = window.innerWidth - 900;
     const maxY = window.innerHeight - 900;
->>>>>>> slimeMain
     const x = Math.max(0, Math.floor(Math.random() * maxX));
     const y = Math.max(0, Math.floor(Math.random() * maxY));
     enemy.style.left = x + "px";
@@ -209,10 +168,6 @@ const timer = {
     this.displayElement.textContent = this.duration;
 
     this.intervalId = setInterval(() => {
-<<<<<<< HEAD
-
-=======
->>>>>>> slimeMain
       if (this.duration > 0) {
         this.duration--;
         this.updateDisplay();
@@ -222,14 +177,6 @@ const timer = {
     }, 1000);
   },
 
-<<<<<<< HEAD
-  updateDisplay: function () {
-    this.displayElement.textContent = this.duration;
-    if (this.duration <= 10) {
-      let hexRedColor = 150
-      this.displayElement.style.color = `rgb(${hexRedColor},0,0)`; // Bright red color
-      hexRedColor += 10
-=======
   stop: function () {
     clearInterval(this.intervalId);
   },
@@ -246,7 +193,6 @@ const timer = {
       let hexRedColor = 150;
       this.displayElement.style.color = `rgb(${hexRedColor},0,0)`; // Bright red color
       hexRedColor += 10;
->>>>>>> slimeMain
     }
   },
 
@@ -256,58 +202,33 @@ const timer = {
   },
 };
 
-<<<<<<< HEAD
-function showScore() {
-=======
 const showScore = ()=> {
->>>>>>> slimeMain
   const pointsDisplay = document.getElementById("points");
 
   setInterval(() => {
     pointsDisplay.textContent = `Points: ${points}`;
     setLocalStorage();
-<<<<<<< HEAD
-    changRootVariable();
-  }, 1000);
-}
-function endGameMessage() {
-=======
     //changRootVariable();
   }, 1000);
 }
 const endGameMessage =()=>{
->>>>>>> slimeMain
  let messageEndGame = document.getElementById('dialogPop')
  let pointsShow = document.getElementById("pointsShow")
  pointsShow.textContent = points
  messageEndGame.show()
 }
 
-<<<<<<< HEAD
-function closeModal(){
-  let closeModal = document.querySelector(".btn")
-  closeModal.addEventListener("click", ()=>{
-    messageEndGame.hide()
-  })
-}
-function generateRandomHexColor() {
-=======
 const closeModal =()=>{
   let messageEndGame = document.getElementById('dialogPop')
  messageEndGame.close()
 }
 const generateRandomHexColor =()=> {
->>>>>>> slimeMain
   let hexColor = "#";
   hexColor += Math.floor(Math.random() * 16777215).toString(16);
 
   return hexColor;
 }
-<<<<<<< HEAD
-function setLocalStorage() {
-=======
 const setLocalStorage =()=> {
->>>>>>> slimeMain
   let displayMaxScore = document.getElementById("maxPoints");
   let higherScore = parseInt(localStorage.getItem("higherScore")) || 0;
   displayMaxScore.innerHTML = `Max Score : ${higherScore}`;
@@ -319,34 +240,16 @@ const setLocalStorage =()=> {
 
   return higherScore;
 }
-<<<<<<< HEAD
-function changRootVariable() {
-  let rootCss = document.querySelector(":root");
-  rootCss.style.setProperty("--Main--Color", generateRandomHexColor());
-}
-function verifyEnemyQuantity() {
-=======
 const changRootVariable =()=> {
   let rootCss = document.querySelector(":root");
   rootCss.style.setProperty("--Main--Color", generateRandomHexColor());
 }
 const verifyEnemyQuantity =()=> {
->>>>>>> slimeMain
   const enemyElements = document.getElementsByClassName("personalEnemy");
   if (enemyElements.length === 0) {
     alert("You cleared the game!");
   }
 }
-<<<<<<< HEAD
-function startGame() {
-  showScore();
-  timer.start();
-  for (let i = 0; i < 5; i++) {
-    enemyGenerator.createEnemy();
-  }
-  
-}
-=======
 const startGame =()=> {
   const mainEnemy = enemyGenerator.createEnemy();
   showScore();
@@ -409,4 +312,3 @@ document.addEventListener("keydown", function (event) {
   console.log(event.key)
 });
 
->>>>>>> slimeMain
