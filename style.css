@@ -66,7 +66,7 @@ dialog{
     border:  2px solid #144363;
 }
 dialog::backdrop{
-    background-color: rgb(49, 49, 49)
+    background-color: rgba(49, 49, 49, 0.507)
 }
 
 .btn{
@@ -76,6 +76,9 @@ dialog::backdrop{
     margin-top: 15px;
     border: none;
     transition: all .2s;
+    text-transform: uppercase;
+    font-weight: 800;
+
 }
 .btn:hover{
     background-color: #181f58;
@@ -83,4 +86,13 @@ dialog::backdrop{
 }
 .main-enemy{
     position: absolute;
+}
+.time_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.apperence{
+    display: none;
 }

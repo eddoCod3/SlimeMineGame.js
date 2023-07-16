@@ -159,7 +159,6 @@ const enemyGenerator = {
   },
 };
 
-
 const timer = {
   duration: 30,
   intervalId: null,
@@ -204,7 +203,6 @@ const timer = {
   },
 };
 
-
 const showScore = ()=> {
   const pointsDisplay = document.getElementById("points");
 
@@ -223,8 +221,7 @@ const endGameMessage =()=>{
 
 const closeModal =()=>{
   let messageEndGame = document.getElementById('dialogPop')
- messageEndGame.hide()
- 
+ messageEndGame.close()
 }
 const generateRandomHexColor =()=> {
   let hexColor = "#";
@@ -255,12 +252,11 @@ const verifyEnemyQuantity =()=> {
   }
 }
 const startGame =()=> {
+  const mainEnemy = enemyGenerator.createEnemy();
   showScore();
   timer.start();
-  const mainEnemy = enemyGenerator.createEnemy();
   mainEnemy.classList.add("main-enemy");
-
-  
+  dialogTime.close();
 }
 
 document.addEventListener("click", function (event) {
@@ -295,14 +291,25 @@ const restartGame = () => {
   timer.start();
   
     const dialog = document.getElementById("dialogPop");
+    const dialogTime = document.querySelector("#dialogPop_menu");
+    dialogTime.classList.remove("time_modal")
+    dialogTime.close();
     dialog.close();
  
 };
 
-
+//Manage the time tab
 document.addEventListener("keydown", function (event) {
-  if (event.key === "Escape") {
-    const dialog = document.querySelector("#dialogPop_menu");
+  const dialog = document.querySelector("#dialogPop_menu");
+  if (event.key === "ArrowDown") {
+    dialog.classList.remove("apperence");
     dialog.showModal();
   }
+  if(event.key === "ArrowUp") {
+    dialog.classList.add("apperence")
+    dialog.close();
+  }
+
+  console.log(event.key)
 });
+
